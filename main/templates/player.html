@@ -1,7 +1,13 @@
-<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+  
 <form method="post">
   {%if msg%}
 <article class="message is-warning">
@@ -32,19 +38,17 @@
 
 {%endif%}
 
-
-
-
 <script>
   
   let chartConfig = {
+  backgroundColor:'black',
   type: 'radar',
   plot: {
     aspect: 'area',
     animation: {
       effect: 3,
-      sequence: 1,
-      speed: 700,
+      sequence: 10,
+      speed: 1000,
     },
   },
   scaleV: {
@@ -191,8 +195,13 @@ body {
   transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
 }
 
+
 </style>
 
 
 
 
+
+  
+</body>
+</html>
