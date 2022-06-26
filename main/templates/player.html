@@ -19,101 +19,36 @@
   {%csrf_token%}
   
 <div class="form__group">
-  <input type="text" class="form__input" name="name" placeholder="Player Name" required="" />
+  <input type="text" class="form__input" name="name" value="{{t2.name}}"  placeholder="Player Name" required="" />
   <label for="name" class="form__label">Player Name</label>
-  <input type="text" class="form__input" name="game" placeholder="Game" required="" />
-  <label for="game" class="form__label">Game</label>
 </div>
 <br>
-  <button type="submit" class="bn3637 bn37">search</button>
+  <button type="submit" class="bn3637 bn37" style="margin-left: 240px;">search</button>
 </form>
 
+
+{{t1.name}}
 {%if t2%}
 
-<div style="margin-top:-500px;">name: {{t2.name}}<br>narrative: {{t2.narrative}}<br>year: {{t2.year}}</div>
-
-<div id="myChart" class="chart--container">
-  <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
+<div style="margin-top:-100px; margin-left: 100px"> {%for i in t2%}
+  <br><br>
+  name:{{i.name}}<br>
+  narrative: {{i.narrative}}
+  <br>year: {{i.year}}
+  <br>
+  <br>
+  <a href="{%url 'game' i.pk%}" class="bn3">show</a>
+  {%endfor%}
 </div>
 
 {%endif%}
 
-<script>
-  
-  let chartConfig = {
-  backgroundColor:'black',
-  type: 'radar',
-  plot: {
-    aspect: 'area',
-    animation: {
-      effect: 3,
-      sequence: 10,
-      speed: 1000,
-    },
-  },
-  scaleV: {
-    visible: false,
-  },
-  scaleK: {
-    values: '0:5:1',
-    labels: ['height', 'weight', 'activity_1', 'activity_2', 'activity_3', ''],
-    guide: {
-      alpha: 0.3,
-      backgroundColor: '#c5c5c5 #718eb4',
-      lineColor: '#607D8B',
-      lineStyle: 'solid',
-    },
-    item: {
-      backgroundColor: 'white',
-      borderColor: '#aeaeae',
-      borderRadius: '10px',
-      borderWidth: '1px',
-      fontColor: '#607D8B',
-      padding: '5 10',
-    },
-    refLine: {
-      lineColor: '#c10000',
-    },
-    tick: {
-      lineColor: '#59869c',
-      lineWidth: '2px',
-      lineStyle: 'dotted',
-      size: 20,
-    },
-  },
-  
-  series: [
-    {
-      values: [parseInt('{{t1.height}}'), parseInt('{{t1.weight}}'), parseInt('{{t2.activity_1}}'), parseInt('{{t2.activity_2}}'), parseInt('{{t2.activity_3}}')],
-      backgroundColor: '#689F38',
-      lineColor: '#53a534',
-    },
-  ],
-};
- 
-zingchart.render({
-  id: 'myChart',
-  data: chartConfig,
-  height: '100%',
-  width: '100%',
-});
-</script>
+
+
 
 <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
-  .zc-body {
-  background-color: #fff;
-}
- 
-.chart--container {
-  width: 100%;
-  height: 100%;
-  min-height: 530px;
-}
- 
-.zc-ref {
-  display: none;
-}
+
 
 *,
 *::after,
@@ -193,6 +128,27 @@ body {
   
 .bn37:hover {
   transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
+}
+
+.bn3 {
+  display: inline-block;
+  padding: 0.5em 1.7em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgb(255, 255, 255);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.bn3:hover {
+  color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 

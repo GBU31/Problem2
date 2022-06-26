@@ -27,11 +27,15 @@ def player(request):
     # search for the Player Name e.g. Player_A
     if request.method == 'POST':
         name = request.POST['name']
-        game = request.POST['game']
-        try:
-            return render(request, 'player.html', {'t1':t1.objects.get(name=name), 't2':t2.objects.get(name=name, game_no=game)})
-        except:
-            return render(request, 'player.html', {'msg':'Player not found'})
+        if t1.objects.filter(name=name):
+            return render(request, 'player.html', {'t1':t1.objects.filter(name=name), 't2':t2.objects.filter(name=name)})
+
+        else:
+            return render(request, 'player.html', {'msg':'Player or Game is incorrect'})
 
 
     return render(request, 'player.html')
+
+
+def game(request, pk):
+    return render(request, 'game.html', {'t2':t2.objects.filter(pk=pk)})
