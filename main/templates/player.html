@@ -1,10 +1,15 @@
+{%load static%}
+
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="{%static 'css/timeline.css'%}" rel="stylesheet">
+
 </head>
 <body>
   
@@ -30,15 +35,47 @@
 {{t1.name}}
 {%if t2%}
 
-<div style="margin-top:-100px; margin-left: 100px"> {%for i in t2%}
-  <br><br>
-  name:{{i.name}}<br>
-  narrative: {{i.narrative}}
-  <br>year: {{i.year}}
-  <br>
-  <br>
-  <a href="{%url 'game' i.pk%}" class="bn3">show</a>
-  {%endfor%}
+<div style="margin-top:-100px; margin-left: 100px">
+  
+
+  <div class="container">
+    <div class="timeline">
+      
+      
+  
+      
+      {%for i in t2%}
+      <div class="timeline-section">
+        
+        <div class="timeline-date">
+          {{i.year}}
+        </div>
+        
+          <div class="col-sm-4">
+            <div class="timeline-box">
+              <div class="box-title">
+                <i class="fa fa-tasks text-primary" aria-hidden="true"></i> {{i.game_no}}
+              </div>
+              <div class="box-content">
+                
+                <div class="box-item"><strong>name</strong>:{{i.name}}<br>
+                  narrative: {{i.narrative}}
+                  <br><br>
+                  <a href="{%url 'game' i.pk%}" class="bn3">show</a></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+          </div>
+
+          {%endfor%}
+          
+                  
+  
+    </div>
+  </div>
 </div>
 
 {%endif%}
