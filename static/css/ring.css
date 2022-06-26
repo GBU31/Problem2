@@ -1,0 +1,85 @@
+
+
+h1{
+  font-size: 3em;
+  padding: 0.2em;
+  font-family: sans-serif;
+  color: blanchedalmond;
+  background-color: #222;
+  text-align: center;
+}
+
+#kontener{
+  padding: 4em;
+  width: 120px;
+  height: 60px;
+  margin: 0 auto;
+  perspective: 2400px;
+}
+
+#karta{
+  transform: rotateX(-20deg);
+  transform-style: preserve-3d;
+  animation: obrot 36s linear infinite;
+}
+
+#karta>div{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #0264bf;
+  background-color: rgba(255,255,255,0.5);
+  background-image: radial-gradient(ellipse at bottom left, transparent, #0264bf);
+  box-shadow: 0 0 2px #0264bf;
+}
+
+#karta>div:hover{
+  width: 100px;
+
+}
+
+#karta>div:nth-child(1){
+  transform: rotateY(0) translateZ(200px);
+}
+
+#karta>div:nth-child(2){
+  transform: rotateY(40deg) translateZ(200px);
+}
+
+#karta>div:nth-child(3){
+  transform: rotateY(80deg) translateZ(200px);
+}
+
+#karta>div:nth-child(4){
+  transform: rotateY(120deg) translateZ(200px);
+}
+
+#karta>div:nth-child(5){
+  transform: rotateY(160deg) translateZ(200px);
+}
+
+#karta>div:nth-child(6){
+  transform: rotateY(200deg) translateZ(200px);
+}
+
+#karta>div:nth-child(7){
+  transform: rotateY(240deg) translateZ(200px);
+}
+
+#karta>div:nth-child(8){
+  transform: rotateY(280deg) translateZ(200px);
+}
+
+#karta>div:nth-child(9){
+  transform: rotateY(320deg) translateZ(200px);
+}
+
+@keyframes obrot {
+  0% {transform: rotateX(-0deg) rotateY(0);}
+  100% {transform: rotateX(-0deg) rotateY(360deg);}
+}
+
+@keyframes obrot {
+  0% {transform: rotateX(-10deg) rotateY(0);}
+  100% {transform: rotateX(-10deg) rotateY(360deg);}
+}

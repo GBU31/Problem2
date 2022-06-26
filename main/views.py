@@ -29,7 +29,7 @@ def player(request):
         name = request.POST['name']
         game = request.POST['game']
         try:
-            return render(request, 'player.html', {'t1':t1.objects.get(name=name), 't2':t2.objects.get(name=name, game_no=game)})
+            return render(request, 'player.html', {'t1':t1.objects.get(name=name), 't2':t2.objects.get(name=name, game_no=game), 'year':t2.objects.filter(name=name)})
         except:
             return render(request, 'player.html', {'msg':'Player not found'})
 

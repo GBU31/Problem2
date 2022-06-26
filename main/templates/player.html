@@ -1,10 +1,15 @@
+{%load static%}
+
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script src="{%static 'js/radar.js'%}"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet/less" type="text/css" href="{%static 'css/ring.css'%}" />
+  <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
 </head>
 <body>
   
@@ -26,78 +31,29 @@
 </div>
 <br>
   <button type="submit" class="bn3637 bn37">search</button>
-</form>
+</form> 
 
 {%if t2%}
 
 <div style="margin-top:-500px;">name: {{t2.name}}<br>narrative: {{t2.narrative}}<br>year: {{t2.year}}</div>
 
-<div id="myChart" class="chart--container">
-  <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
-</div>
 
+<div id="kontener" style="margin-right: 400px;">
+  {{t2.game_no}}
+  <div id="karta">
+    <div style="text-align: center;">{{t1.height}}</div>
+    <div style="text-align: center;">{{t1.weight}}</div>
+    <div style="text-align: center;">{{t2.activity_1}}</div>
+    <div style="text-align: center;">{{t2.activity_2}}</div>
+    <div style="text-align: center;">{{t2.activity_3}}</div>
+    <div style="text-align: center;"></div>
+    <div style="text-align: center;"></div>
+    <div style="text-align: center;"></div>
+    <div style="text-align: center;"></div>
+    
+  </div>
+  </div>
 {%endif%}
-
-<script>
-  
-  let chartConfig = {
-  backgroundColor:'black',
-  type: 'radar',
-  plot: {
-    aspect: 'area',
-    animation: {
-      effect: 3,
-      sequence: 10,
-      speed: 1000,
-    },
-  },
-  scaleV: {
-    visible: false,
-  },
-  scaleK: {
-    values: '0:5:1',
-    labels: ['height', 'weight', 'activity_1', 'activity_2', 'activity_3', ''],
-    guide: {
-      alpha: 0.3,
-      backgroundColor: '#c5c5c5 #718eb4',
-      lineColor: '#607D8B',
-      lineStyle: 'solid',
-    },
-    item: {
-      backgroundColor: 'white',
-      borderColor: '#aeaeae',
-      borderRadius: '10px',
-      borderWidth: '1px',
-      fontColor: '#607D8B',
-      padding: '5 10',
-    },
-    refLine: {
-      lineColor: '#c10000',
-    },
-    tick: {
-      lineColor: '#59869c',
-      lineWidth: '2px',
-      lineStyle: 'dotted',
-      size: 20,
-    },
-  },
-  
-  series: [
-    {
-      values: [parseInt('{{t1.height}}'), parseInt('{{t1.weight}}'), parseInt('{{t2.activity_1}}'), parseInt('{{t2.activity_2}}'), parseInt('{{t2.activity_3}}')],
-      backgroundColor: '#689F38',
-      lineColor: '#53a534',
-    },
-  ],
-};
- 
-zingchart.render({
-  id: 'myChart',
-  data: chartConfig,
-  height: '100%',
-  width: '100%',
-});
-</script>
 
 <style>
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
@@ -196,9 +152,8 @@ body {
 }
 
 
+
 </style>
-
-
 
 
 
