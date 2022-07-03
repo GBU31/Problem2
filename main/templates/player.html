@@ -22,9 +22,11 @@
 </article>
 {%endif%}
   {%csrf_token%}
+
+
   
 <div class="form__group">
-  <input type="text" class="form__input" name="name" value="{{t2.name}}"  placeholder="Player Name" required="" />
+  <input type="text" class="form__input" name="name" value="{{name}}"  placeholder="Player Name" required="" />
   <label for="name" class="form__label">Player Name</label>
 </div>
 <br>
@@ -32,7 +34,8 @@
 </form>
 
 
-{{t1.name}}
+
+
 {%if t2%}
 
 <div style="margin-top:-100px; margin-left: 100px">
@@ -59,7 +62,8 @@
               <div class="box-content">
                 
                 <div class="box-item"><strong>name</strong>:{{i.name}}<br>
-                  narrative: {{i.narrative}}
+                  
+                  {{i.narrative}}
                   <br><br>
                   <a href="{%url 'game' i.pk%}" class="bn3">show</a></p></div>
               </div>
