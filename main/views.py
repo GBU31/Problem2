@@ -7,11 +7,12 @@ from .models import *
 def player(request):
     t1.objects.all().delete()
     t2.objects.all().delete()
+    
 
     # Define a dictionary containing player data
     global data1
     data1 = {'Name':['Player_A', 'Player_B'], 'Height':['103', '100'], 'weight':['219', '216']}
-    data2 = {'Name':['Player_A', 'Player_A'], 'game_no':['game_1', 'game_2'], 'Activity_1':['3', '4'], 'Activity_2':['86', '85'], 'Activity_3':['94', '93'], 'year':['2093', '2097'], 'Narrative':['Exceled in boxing Championed in Worlds Championship', 'Exceled in boxing Championed in Worlds Championship']}
+    data2 = {'Name':['Player_A', 'Player_A', 'Player_B'], 'game_no':['game_1', 'game_2', 'game_1'], 'Activity_1':['3', '4', '18'], 'Activity_2':['86', '85', '99'], 'Activity_3':['94', '93', '155'], 'year':['2093', '2097', '2022'], 'Narrative':['Exceled in boxing Championed in Worlds Championship', 'Exceled in boxing Championed in Worlds Championship', 'Exceled in boxing Championed in Worlds Championship']}
     
     df = pd.DataFrame(data1)
     df2 = pd.DataFrame(data2)
